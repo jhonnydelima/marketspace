@@ -1,4 +1,5 @@
 import { StatusBar, Text, View } from 'react-native';
+import { NativeBaseProvider, Center } from 'native-base';
 import { useFonts, Karla_400Regular, Karla_700Bold } from '@expo-google-fonts/karla'
 
 export default function App() {
@@ -11,14 +12,16 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#EDECEE' }}>
-      <StatusBar
-        barStyle='dark-content'
-        backgroundColor='transparent'
-        translucent
-      />
+    <NativeBaseProvider>
+      <Center flex={1} bg='#EDECEE'>
+        <StatusBar
+          barStyle='dark-content'
+          backgroundColor='transparent'
+          translucent
+        />
 
-      {fontsLoaded ? <Text>MartkeSpace!</Text> : <View />}
-    </View>
+        {fontsLoaded ? <Text>MartkeSpace!</Text> : <View />}
+      </Center>
+    </NativeBaseProvider>
   );
 }
