@@ -1,9 +1,11 @@
-import { StatusBar, Text } from 'react-native';
-import { NativeBaseProvider, Center } from 'native-base';
+import { StatusBar } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 import { useFonts, Karla_400Regular, Karla_700Bold } from '@expo-google-fonts/karla'
 
 import { THEME } from './src/theme';
 import { Loading } from '@components/Loading';
+
+import { SignIn } from '@screens/SignIn';
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -16,15 +18,13 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={THEME}>
-      <Center flex={1} bg='gray.200'>
-        <StatusBar
-          barStyle='dark-content'
-          backgroundColor='transparent'
-          translucent
-        />
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
 
-        {fontsLoaded ? <Text>MartkeSpace!</Text> : <Loading />}
-      </Center>
+      {fontsLoaded ? <SignIn /> : <Loading />}
     </NativeBaseProvider>
   );
 }
