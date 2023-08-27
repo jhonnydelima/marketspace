@@ -2,6 +2,7 @@ import { StatusBar, Text } from 'react-native';
 import { NativeBaseProvider, Center } from 'native-base';
 import { useFonts, Karla_400Regular, Karla_700Bold } from '@expo-google-fonts/karla'
 
+import { THEME } from './src/theme';
 import { Loading } from '@components/Loading';
 
 export default function App() {
@@ -14,8 +15,8 @@ export default function App() {
   }
 
   return (
-    <NativeBaseProvider>
-      <Center flex={1} bg='#EDECEE'>
+    <NativeBaseProvider theme={THEME}>
+      <Center flex={1} bg='gray.200'>
         <StatusBar
           barStyle='dark-content'
           backgroundColor='transparent'
