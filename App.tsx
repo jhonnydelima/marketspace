@@ -1,6 +1,8 @@
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar, Text } from 'react-native';
 import { NativeBaseProvider, Center } from 'native-base';
 import { useFonts, Karla_400Regular, Karla_700Bold } from '@expo-google-fonts/karla'
+
+import { Loading } from '@components/Loading';
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -20,7 +22,7 @@ export default function App() {
           translucent
         />
 
-        {fontsLoaded ? <Text>MartkeSpace!</Text> : <View />}
+        {fontsLoaded ? <Text>MartkeSpace!</Text> : <Loading />}
       </Center>
     </NativeBaseProvider>
   );
