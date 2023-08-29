@@ -49,7 +49,6 @@ export function SignIn() {
         flex={1}
         px={12}
       >
-        <Text>VStack 2</Text>
       </VStack>
     </ScrollView>
   );
