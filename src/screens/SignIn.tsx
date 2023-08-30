@@ -39,8 +39,17 @@ export function SignIn() {
           fontSize='sm'
           fontFamily='body'
           lineHeight='xs'
+          mb={16} // VALIDAR
         >
           Seu espaço de compra e venda
+        </Text>
+
+        <Text
+          color='gray.600'
+          fontSize='sm'
+          fontFamily='body'
+        >
+          Acesse sua conta
         </Text>
       </VStack>
 
