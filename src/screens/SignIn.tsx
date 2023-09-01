@@ -1,4 +1,4 @@
-import { Box, Heading, Image, ScrollView, Text, VStack } from 'native-base';
+import { Box, Heading, Image, Input, ScrollView, Text, VStack } from 'native-base';
 
 import LogoImg from '@assets/logoSignIn.png';
 
@@ -51,6 +51,9 @@ export function SignIn() {
         >
           Acesse sua conta
         </Text>
+
+        <Input placeholder='E-mail' />
+        <Input placeholder='Senha' />
       </VStack>
 
       <VStack
