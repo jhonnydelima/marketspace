@@ -6,6 +6,7 @@ import { Eye, EyeSlash } from 'phosphor-react-native';
 import { Input } from '@components/Input';
 
 import LogoImg from '@assets/logoSignIn.png';
+import { Button } from '@components/Button';
 
 export function SignIn() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -84,13 +85,32 @@ export function SignIn() {
           // onChangeText={}
           // errorMessage={}
         />
+
+        <Button
+          mt={8}
+          title='Entrar'
+          onPress={() => {}}
+          // isLoading={}
+        />
       </VStack>
 
       <VStack
         bg='gray.100'
         flex={1}
         px={12}
+        alignItems='center'
+        justifyContent='center'
       >
+        <Text color='gray.600' fontSize='sm' fontFamily='body'>
+          Ainda não tem acesso?
+        </Text>
+
+        <Button
+          mt={4}
+          title='Criar uma conta'
+          variant='secondary'
+          onPress={() => {}}
+        />
       </VStack>
     </ScrollView>
   );
