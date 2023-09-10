@@ -1,8 +1,15 @@
-import { Box, Heading, Image, Input, ScrollView, Text, VStack } from 'native-base';
+import { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { Box, Heading, Image, ScrollView, Text, VStack } from 'native-base';
+import { Eye, EyeSlash } from 'phosphor-react-native';
+
+import { Input } from '@components/Input';
 
 import LogoImg from '@assets/logoSignIn.png';
 
 export function SignIn() {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1 }}
@@ -48,12 +55,35 @@ export function SignIn() {
           color='gray.600'
           fontSize='sm'
           fontFamily='body'
+          mb={4}
         >
           Acesse sua conta
         </Text>
 
-        <Input placeholder='E-mail' />
-        <Input placeholder='Senha' />
+        <Input
+          placeholder='E-mail'
+          keyboardType='email-address'
+          autoCapitalize='none'
+          // value={}
+          // onChangeText={}
+          // errorMessage={}
+        />
+
+        <Input
+          placeholder='Senha'
+          secureTextEntry={!isPasswordVisible}
+          InputRightElement={
+            <TouchableOpacity
+              style={{ paddingRight: 16 }}
+              onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+            >
+              {isPasswordVisible ? <EyeSlash /> : <Eye />}
+            </TouchableOpacity>
+          }
+          // value={}
+          // onChangeText={}
+          // errorMessage={}
+        />
       </VStack>
 
       <VStack
