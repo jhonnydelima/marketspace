@@ -21,7 +21,7 @@ export function Button({ title, variant = 'primary', ...rest }: Props) {
       bg={variantData?.bg}
       borderWidth={0}
       borderColor='blue.700'
-      rounded='sm'
+      rounded='md'
       _text={{
         color: variantData?.color,
         fontFamily: 'heading',
