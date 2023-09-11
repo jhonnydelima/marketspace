@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { Box, Heading, Image, ScrollView, Text, VStack } from 'native-base';
+import { Center, Heading, Image, ScrollView, Text } from 'native-base';
 import { Eye, EyeSlash } from 'phosphor-react-native';
 
+import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
 import LogoImg from '@assets/logoSignIn.png';
-import { Button } from '@components/Button';
 
 export function SignIn() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -16,22 +16,20 @@ export function SignIn() {
       contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
     >
-      <VStack
+      <Center
+        safeAreaTop
         bg='gray.200'
         h='70%'
         px={12}
         borderBottomRadius={24}
         alignItems='center'
       >
-        <Box safeAreaTop>
-          <Image
-            source={LogoImg}
-            defaultSource={LogoImg}
-            alt="Logo do MarketSpace"
-            resizeMode='contain'
-            mt={12}
-          />
-        </Box>
+        <Image
+          source={LogoImg}
+          defaultSource={LogoImg}
+          alt="Logo do MarketSpace"
+          resizeMode='contain'
+        />
 
         <Heading
           mt={2}
@@ -92,9 +90,9 @@ export function SignIn() {
           onPress={() => {}}
           // isLoading={}
         />
-      </VStack>
+      </Center>
 
-      <VStack
+      <Center
         bg='gray.100'
         flex={1}
         px={12}
@@ -111,7 +109,7 @@ export function SignIn() {
           variant='secondary'
           onPress={() => {}}
         />
-      </VStack>
+      </Center>
     </ScrollView>
   );
 }
