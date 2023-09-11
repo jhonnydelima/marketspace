@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Center, HStack, Heading, Image, Pressable, ScrollView, Text, useTheme } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 import { Eye, EyeSlash, PencilSimpleLine } from 'phosphor-react-native';
 
 import { Input } from '@components/Input';
@@ -17,6 +18,12 @@ export function SignUp() {
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   const { colors } = useTheme();
+
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
 
   return (
     <ScrollView
@@ -155,7 +162,7 @@ export function SignUp() {
           mt={4}
           title="Ir para o login"
           variant="secondary"
-          onPress={() => {}}
+          onPress={handleGoBack}
         />
       </Center>
     </ScrollView>

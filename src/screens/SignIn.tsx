@@ -1,20 +1,30 @@
 import { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Center, Heading, Image, ScrollView, Text } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 import { Eye, EyeSlash } from 'phosphor-react-native';
 
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
+
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 
 import LogoImg from '@assets/logoSignIn.png';
 
 export function SignIn() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  const navigation = useNavigation<AuthNavigatorRoutesProps>();
+
+  function handleNewAccount() {
+    navigation.navigate('signUp');
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
+      bg='gray.100'
     >
       <Center
         safeAreaTop
@@ -93,7 +103,6 @@ export function SignIn() {
       </Center>
 
       <Center
-        bg='gray.100'
         flex={1}
         px={12}
         alignItems='center'
@@ -107,7 +116,7 @@ export function SignIn() {
           mt={4}
           title='Criar uma conta'
           variant='secondary'
-          onPress={() => {}}
+          onPress={handleNewAccount}
         />
       </Center>
     </ScrollView>
