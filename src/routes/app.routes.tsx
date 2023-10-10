@@ -1,17 +1,21 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform } from 'react-native';
+import { useTheme } from 'native-base';
+import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { House, Tag, SignOut } from 'phosphor-react-native';
 
-import { Home } from '@screens/Home';
-import { ProductDetails } from '@screens/ProductDetails';
-import { MyProducts } from '@screens/MyProducts';
-import { MyProductDetails } from '@screens/MyProductDetails';
-import { CreateProduct } from '@screens/CreateProduct';
-import { EditProduct } from '@screens/EditProduct';
-import { PreVisualizeProduct } from '@screens/PreVisualizeProduct';
+import { HomeRoutes } from './home.routes';
+import { MyProductsRoutes } from './my-products.routes';
 import { Logout } from '@screens/Logout';
-import { useTheme } from 'native-base';
 
-const { Navigator, Screen } = createBottomTabNavigator();
+type AppRoutes = {
+  homeRoutes: undefined;
+  myProductsRoutes: undefined;
+  logout: undefined;
+}
+
+export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>;
+
+const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>();
 
 export function AppRoutes() {
   const { colors, sizes } = useTheme();
@@ -23,10 +27,17 @@ export function AppRoutes() {
       tabBarShowLabel: false,
       tabBarActiveTintColor: colors.gray[600],
       tabBarInactiveTintColor: colors.gray[400],
+      tabBarStyle: {
+        backgroundColor: colors.gray[100],
+        borderTopWidth: 0,
+        height: Platform.OS === 'android' ? 'auto' : 96,
+        paddingBottom: sizes[10],
+        paddingTop: sizes[6],
+      }
     }}>
       <Screen
-        name='home'
-        component={Home}
+        name='homeRoutes'
+        component={HomeRoutes}
         options={{
           tabBarIcon: ({ color }) => (
             <House
@@ -41,14 +52,8 @@ export function AppRoutes() {
       />
 
       <Screen
-        name='product-details'
-        component={ProductDetails}
-        options={{ tabBarButton: () => null }}
-      />
-
-      <Screen
-        name='my-products'
-        component={MyProducts}
+        name='myProductsRoutes'
+        component={MyProductsRoutes}
         options={{
           tabBarIcon: ({ color }) => (
             <Tag
@@ -60,30 +65,6 @@ export function AppRoutes() {
             />
           ),
         }}
-      />
-
-      <Screen
-        name='my-product-details'
-        component={MyProductDetails}
-        options={{ tabBarButton: () => null }}
-      />
-
-      <Screen
-        name='create-product-ad'
-        component={CreateProduct}
-        options={{ tabBarButton: () => null }}
-      />
-
-      <Screen
-        name='edit-product-ad'
-        component={EditProduct}
-        options={{ tabBarButton: () => null }}
-      />
-
-      <Screen
-        name='pre-visualize-product'
-        component={PreVisualizeProduct}
-        options={{ tabBarButton: () => null }}
       />
 
       <Screen
