@@ -6,10 +6,10 @@ import { Eye, EyeSlash, PencilSimpleLine } from 'phosphor-react-native';
 
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
-import { UserAvatar } from '@components/UserAvatar';
+import { UserPhoto } from '@components/UserPhoto';
 
 import LogoImg from '@assets/logoSignUp.png';
-import DefaultUserAvatar from '@assets/defaultAvatar.png';
+import DefaultUserPhoto from '@assets/defaultAvatar.png';
 
 const AVATAR_SIZE = 22;
 
@@ -61,9 +61,9 @@ export function SignUp() {
         </Text>
 
         <HStack mb={4}>
-          <UserAvatar
+          <UserPhoto
             size={AVATAR_SIZE}
-            source={DefaultUserAvatar}
+            source={DefaultUserPhoto}
             alt='Foto do usuário'
           />
 
@@ -142,6 +142,7 @@ export function SignUp() {
         />
 
         <Button
+          w='full'
           mt={2}
           title="Criar"
           variant='tertiary'
@@ -159,6 +160,7 @@ export function SignUp() {
         </Text>
 
         <Button
+          w='full'
           mt={4}
           title="Ir para o login"
           variant="secondary"

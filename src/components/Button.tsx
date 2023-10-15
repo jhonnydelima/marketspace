@@ -2,7 +2,7 @@ import { Button as NativeBaseButton, IButtonProps } from 'native-base';
 
 type Props = IButtonProps & {
   title: string;
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'unstyled';
 }
 
 export function Button({ title, variant = 'primary', ...rest }: Props) {
@@ -10,13 +10,13 @@ export function Button({ title, variant = 'primary', ...rest }: Props) {
     {variant: 'primary', bg: 'blue.500', color: 'gray.100', pressedBg: 'blue.700'},
     {variant: 'secondary', bg: 'gray.300', color: 'gray.600', pressedBg: 'gray.400'},
     {variant: 'tertiary', bg: 'gray.700', color: 'gray.100', pressedBg: 'gray.600'},
+    {variant: 'unstyled', bg: 'transparent', color: undefined, pressedBg: undefined},
   ];
 
   const variantData = variants.find(item => item.variant === variant);
 
   return (
     <NativeBaseButton
-      w='full'
       h={10}
       bg={variantData?.bg}
       borderWidth={0}
@@ -25,7 +25,7 @@ export function Button({ title, variant = 'primary', ...rest }: Props) {
       _text={{
         color: variantData?.color,
         fontFamily: 'heading',
-        fontSize: 'sm'
+        fontSize: 'sm',
       }}
       _pressed={{
         bg: variantData?.pressedBg

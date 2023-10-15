@@ -95,6 +95,7 @@ export function SignIn() {
         />
 
         <Button
+          w='full'
           mt={8}
           title='Entrar'
           onPress={() => {}}
@@ -113,6 +114,7 @@ export function SignIn() {
         </Text>
 
         <Button
+          w='full'
           mt={4}
           title='Criar uma conta'
           variant='secondary'

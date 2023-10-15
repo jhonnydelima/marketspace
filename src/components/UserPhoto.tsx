@@ -4,7 +4,7 @@ type Props = IImageProps & {
   size: number;
 }
 
-export function UserAvatar({ size, ...rest }: Props) {
+export function UserPhoto({ size, ...rest }: Props) {
   return (
     <Image
       w={size}
