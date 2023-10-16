@@ -5,6 +5,7 @@ import { UserPhoto } from './UserPhoto';
 import { Button } from './Button';
 
 import DefaultUserPhoto from '@assets/defaultAvatar.png';
+import { TouchableOpacity } from 'react-native';
 
 const PHOTO_SIZE = 12;
 
@@ -13,13 +14,19 @@ export function HomeHeader() {
 
   return (
     <HStack pt={5} alignItems='center' mb={8}>
-      <UserPhoto
-        size={PHOTO_SIZE}
-        source={DefaultUserPhoto}
-        defaultSource={DefaultUserPhoto}
-        alt="Minha imagem de perfil"
-        mr={3}
-      />
+      <TouchableOpacity
+        style={{
+          marginRight: 12
+        }}
+        onPress={() => {}}
+      >
+        <UserPhoto
+          size={PHOTO_SIZE}
+          source={DefaultUserPhoto}
+          defaultSource={DefaultUserPhoto}
+          alt="Minha imagem de perfil"
+        />
+      </TouchableOpacity>
 
       <VStack flex={1}>
         <Text fontSize='md' color='gray.700'>

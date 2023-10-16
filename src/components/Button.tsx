@@ -8,8 +8,8 @@ type Props = IButtonProps & {
 export function Button({ title, variant = 'primary', ...rest }: Props) {
   const variants = [
     {variant: 'primary', bg: 'blue.500', color: 'gray.100', pressedBg: 'blue.700'},
-    {variant: 'secondary', bg: 'gray.300', color: 'gray.600', pressedBg: 'gray.400'},
-    {variant: 'tertiary', bg: 'gray.700', color: 'gray.100', pressedBg: 'gray.600'},
+    {variant: 'secondary', bg: 'gray.300', color: 'gray.600', pressedBg: 'gray.200'},
+    {variant: 'tertiary', bg: 'gray.700', color: 'gray.100', pressedBg: 'gray.500'},
     {variant: 'unstyled', bg: 'transparent', color: undefined, pressedBg: undefined},
   ];
 

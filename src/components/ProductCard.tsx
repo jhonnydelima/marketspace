@@ -8,7 +8,7 @@ import {
   VStack,
 } from 'native-base';
 
-import { CardTag } from './CardTag';
+import { ProductTag } from './ProductTag';
 import { UserPhoto } from './UserPhoto';
 
 import DefaultUserPhoto from '@assets/defaultAvatar.png';
@@ -63,7 +63,7 @@ export function ProductCard({
           left="0"
         />
 
-        <CardTag isNew={isNew} />
+        <ProductTag isNew={isNew} isSelectable={false} />
       </Box>
 
       <VStack>

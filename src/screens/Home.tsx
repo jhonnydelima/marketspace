@@ -2,8 +2,8 @@ import { FlatList, Text, VStack } from 'native-base';
 
 import { HomeHeader } from '@components/HomeHeader';
 import { MyProductsCard } from '@components/MyProductsCard';
-import { SearchBar } from '@components/SearchBar';
 import { ProductCard } from '@components/ProductCard';
+import { SearchBar } from '@components/SearchBar';
 
 export function Home() {
   const products = [
@@ -86,7 +86,6 @@ export function Home() {
         }}
         showsVerticalScrollIndicator={false}
       />
-
     </VStack>
   );
 }

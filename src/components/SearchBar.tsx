@@ -1,11 +1,13 @@
 import { TouchableOpacity } from 'react-native';
-import { Divider, HStack, useTheme } from 'native-base';
+import { Divider, HStack, useDisclose, useTheme } from 'native-base';
 import { MagnifyingGlass, Sliders } from 'phosphor-react-native';
 
 import { Input } from './Input';
+import { ProductFilters } from './ProductFilters';
 
 export function SearchBar() {
   const { colors, sizes } = useTheme();
+  const { isOpen: isProductFiltersOpen, onOpen, onClose } = useDisclose();
 
   return (
     <Input
@@ -34,10 +36,12 @@ export function SearchBar() {
             style={{
               marginHorizontal: 12
             }}
-            onPress={() => {}}
+            onPress={onOpen}
           >
             <Sliders color={colors.gray[600]} size={sizes[5]} weight='bold' />
           </TouchableOpacity>
+
+          <ProductFilters isOpen={isProductFiltersOpen} onClose={onClose} />
         </HStack>
       }
     />
